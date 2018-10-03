@@ -1,0 +1,8 @@
+def mobile = Jenkins.instance.getItemByFullName("mobile-gwt-release");
+mobile.builds.forEach{
+	println it.number;
+  if(it.number < 200)
+  	it.keepLog( false);
+  
+}
+mobile.logRotator.perform(mobile)
